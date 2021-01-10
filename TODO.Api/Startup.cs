@@ -27,6 +27,7 @@ namespace TODO.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -51,6 +52,10 @@ namespace TODO.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:3000").AllowAnyMethod()
+            );
 
             app.UseEndpoints(endpoints =>
             {

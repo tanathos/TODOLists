@@ -18,8 +18,7 @@ namespace TODO.Api.Migrations
 
             modelBuilder.Entity("TODO.Api.Models.Todo", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedDate")

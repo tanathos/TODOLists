@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace TODO.Api.Models
 {
@@ -8,7 +9,7 @@ namespace TODO.Api.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=todos.db");
+            optionsBuilder.UseSqlite("Data Source=todos.db;");
         }
     }
 }

@@ -9,7 +9,7 @@ using TODO.Api.Models;
 namespace TODO.Api.Migrations
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20210109141429_InitialCreate")]
+    [Migration("20210110134711_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,8 +20,7 @@ namespace TODO.Api.Migrations
 
             modelBuilder.Entity("TODO.Api.Models.Todo", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("CreatedDate")
