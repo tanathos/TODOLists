@@ -54,7 +54,7 @@ namespace TODO.Api
             app.UseAuthorization();
 
             app.UseCors(
-                options => options.WithOrigins("http://localhost:3000").AllowAnyMethod()
+                options => options.WithOrigins("*").AllowAnyMethod()
             );
 
             app.UseEndpoints(endpoints =>

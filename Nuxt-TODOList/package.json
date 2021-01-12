@@ -1,5 +1,5 @@
 {
-  "name": "Nuxt-TODOList",
+  "name": "nuxt-todolist",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -19,6 +19,7 @@
     "@types/eslint": "7.2.6",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.3",
+    "moment": "^2.29.1",
     "nuxt": "^2.14.6",
     "nuxt-property-decorator": "2.8.8"
   },

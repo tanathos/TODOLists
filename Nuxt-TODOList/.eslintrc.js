@@ -9,6 +9,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     semi: "off",
-    quotes: "off"
+    quotes: "off",
+    "no-console": "off"
   }
 };

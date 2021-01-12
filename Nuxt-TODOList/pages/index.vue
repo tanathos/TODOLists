@@ -1,8 +1,9 @@
 <template>
   <div class="container">
     <ul v-for="todo in todos" :key="todo.id">
-      <nuxt-link :to="'/todos/' + todo.id">
-        {{ todo.title }}
+      <nuxt-link :to="'/todos/' + todo.id" class="todo-item p-8 border-4 mb-3">
+        <span class="font-bold">{{ todo.title }}</span>
+        <span>{{ todo.createdDate | formatDate }}</span>
       </nuxt-link>
     </ul>
   </div>

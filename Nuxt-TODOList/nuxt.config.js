@@ -1,7 +1,7 @@
 // Ignores the self-signed certificate for dev
-if (process.env.NODE_ENV === 'development') {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-}
+// if (process.env.NODE_ENV === 'development') {
+//   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+// }
 
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -19,7 +19,7 @@ export default {
   css: ['@/assets/style.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ["~/plugins/filters.ts"],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -52,8 +52,8 @@ export default {
   proxy: {
     "/todoapi": {
       secure: false,
-      target: "https://localhost:49155/",
-      pathRewrite: { '^/todoapi': '/' }
+      target: "https://localhost:49159/",
+      pathRewrite: { '^/todoapi': '' }
     }
   },
 
