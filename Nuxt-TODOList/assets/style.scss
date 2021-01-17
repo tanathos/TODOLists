@@ -3,10 +3,23 @@ body {
   color: #fff;
 }
 
-input[type=text] {
+input[type=text],
+textarea {
   color: black;
 }
 
 .todo-item {
   display: inline-block;
+}
+
+#createTodo {
+  background-color: green;
+}
+
+.field {
+  display: block;
+
+  label {
+    display: block;
+  }
 }

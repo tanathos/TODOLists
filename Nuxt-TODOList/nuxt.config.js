@@ -52,7 +52,7 @@ export default {
   proxy: {
     "/todoapi": {
       secure: false,
-      target: "https://localhost:49159/",
+      target: "https://localhost:44326/",
       pathRewrite: { '^/todoapi': '' }
     }
   },

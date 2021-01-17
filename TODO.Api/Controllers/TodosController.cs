@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TODO.Api.Models;
@@ -22,12 +23,21 @@ namespace TODO.Api.Controllers
         }
 
         [HttpGet("")]
-        public async Task<IActionResult> GetTodos() 
+        [ProducesResponseType(typeof(List<Todo>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetTodos(bool all = false) 
         {
-            return Ok(await _context.Todos.ToListAsync());
+            IQueryable<Todo> query = _context.Todos;
+
+            if (!all) 
+            {
+                query = query.Where(w => w.Done == false);
+            }
+
+            return Ok(await query.ToListAsync());
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(typeof(Todo), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetTodos(Guid id)
         {
             return Ok(await _context.Todos.FirstOrDefaultAsync(f => f.Id == id.ToString()));
@@ -48,6 +58,27 @@ namespace TODO.Api.Controllers
             await _context.SaveChangesAsync();
 
             return Ok(new CreatedTodoResponse() { Id = new Guid(_todo.Id) });
+        }
+
+        [HttpPut("{id}/done")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> Done([FromRoute] Guid id) 
+        {
+            var todo = await _context.Todos.FirstOrDefaultAsync(f => f.Id == id.ToString());
+
+            if (todo != null)
+            {
+                todo.Done = true;
+
+                await _context.SaveChangesAsync();
+
+                return Ok();
+            }
+            else 
+            {
+                return NotFound();
+            }
         }
     }
 }
