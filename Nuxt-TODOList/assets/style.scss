@@ -3,9 +3,17 @@ body {
   color: #fff;
 }
 
+h2 {
+  font-size: 2em;
+}
+
 input[type=text],
 textarea {
   color: black;
+}
+
+.container {
+  margin: auto;
 }
 
 .todo-item {
@@ -21,5 +29,19 @@ textarea {
 
   label {
     display: block;
+  }
+}
+
+a {
+  text-decoration: underline;
+}
+
+.todo-body {
+  margin: auto;
+  padding: 10px;
+
+  #doneTodo {
+    float: right;
+    background-color: blue;
   }
 }

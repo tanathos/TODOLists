@@ -50,6 +50,7 @@ namespace TODO.Api.Controllers
             Todo _todo = new Todo();
             _todo.Id = Guid.NewGuid().ToString();
             _todo.Title = todo.Title;
+            _todo.Description = todo.Description;
             _todo.CreatedDate = DateTime.Now;
             _todo.UpdatedDate = DateTime.Now;
 
